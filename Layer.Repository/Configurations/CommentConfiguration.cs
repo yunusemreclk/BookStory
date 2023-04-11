@@ -1,6 +1,5 @@
 ﻿using Layer.Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Layer.Repository.Configurations
 {
-    internal class CommentConfiguration : IEntityTypeConfiguration<Comment>
+    internal class CommentConfiguration:IEntityTypeConfiguration<Comment>
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.Property(x=>x.CommentText).HasColumnType("varchar").HasMaxLength(500);
+            builder.Property(x => x.CommentText).HasColumnType("varchar").HasMaxLength(500);
         }
     }
 }

@@ -14,8 +14,10 @@ namespace Layer.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(x=>x.Name).HasColumnType("Varchar").HasMaxLength(50);
+            builder.HasKey(x => x.CategoryID);
+            builder.Property(x=>x.CategoryID).UseIdentityColumn();
+            builder.Property(x=>x.CategoryName).HasColumnType("varchar").HasMaxLength(50);
+            builder.HasMany(x=>x.Book_Categories).WithOne(x=>x.Category).HasForeignKey(x=>x.CategoryID);
         }
     }
 }

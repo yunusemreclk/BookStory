@@ -1,3 +1,12 @@
+using Layer.Core.IUnitOfWork;
+using Layer.Core.Repositories;
+using Layer.Core.Services;
+using Layer.Repository;
+using Layer.Repository.Repositories;
+using Layer.Repository.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Writer : BaseEntity
+    public class Writer 
     {
-        public string Name { get; set; }
+        public int WriterID { get; set; }
+        public string WriterName { get; set; }
         public string Biography { get; set; }
         public ICollection<Book>? Books { get; set; }
     }

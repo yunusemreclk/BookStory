@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Cart : BaseEntity
+    public class Cart
     {
-       
+        public int CartID { get; set; }
         public int BookID { get; set; }
         public byte Number { get; set; } // Maximum 10
         public Book? Book { get; set; }

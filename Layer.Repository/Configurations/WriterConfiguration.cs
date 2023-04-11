@@ -1,5 +1,6 @@
 ﻿using Layer.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,11 @@ namespace Layer.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Writer> builder)
         {
-            builder.Property(x=>x.Name).HasMaxLength(50).HasColumnType("varchar");
-            builder.Property(x=>x.Biography).HasColumnType("varchar").HasMaxLength(500);
+            builder.HasKey( x => x.WriterID);
+            builder.Property(x=> x.WriterID).UseIdentityColumn();
+            builder.Property(x=> x.Biography).IsRequired();
+            builder.Property(x => x.WriterName).HasMaxLength(150).IsRequired();
+         
 
         }
     }

@@ -9,20 +9,19 @@ using System.Threading.Tasks;
 
 namespace Layer.Repository.Seeds
 {
-    internal class CategorySeed:IEntityTypeConfiguration<Category>
+    internal class CategorySeed : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasData(
-                new Category { Id = 1, Name = "Macera" },
-                new Category { Id = 2, Name = "Tarih" },
-                new Category { Id = 3, Name = "Dünya Klasikleri" },
-                new Category { Id = 4, Name = "Hikaye" },
-                new Category { Id = 5, Name = "BilimKurgu" },
-                new Category { Id = 6, Name = "Türk Edebiyatı" },
-                new Category { Id = 7, Name = "Roman" }
+                new Category { CategoryID= 1, CategoryName = "Macera" },
+                new Category { CategoryID = 2, CategoryName = "Tarih" },
+                new Category { CategoryID = 3, CategoryName = "Dünya Klasikleri" },
+                new Category { CategoryID = 4, CategoryName = "Hikaye" },
+                new Category { CategoryID = 5, CategoryName = "BilimKurgu" },
+                new Category { CategoryID = 6, CategoryName = "Türk Edebiyatı" },
+                new Category { CategoryID = 7, CategoryName = "Roman" }
                 );
         }
     }
 }
-

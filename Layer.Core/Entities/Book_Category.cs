@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Book_Category : BaseEntity
+    public class Book_Category
     {
-        
+
+        public int ID { get; set; }
         public int BookID { get; set; }
         public int CategoryID { get; set; }
 
