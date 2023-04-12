@@ -36,6 +36,7 @@ namespace Layer.Repository
             builder.ApplyConfiguration<Book>(new BookConfiguration());
             builder.ApplyConfiguration<Book>(new BookSeed());
             builder.ApplyConfiguration<Category>(new CategorySeed());
+            builder.ApplyConfiguration<Book_Category>(new Book_CategorySeed());
             
         }
        
