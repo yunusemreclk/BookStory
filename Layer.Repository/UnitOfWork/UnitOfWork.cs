@@ -14,12 +14,10 @@ namespace Layer.Repository.UnitOfWork
         {
             _context = context;
         }
-
         public void Commit()
         {
             _context.SaveChanges();
         }
-
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();
