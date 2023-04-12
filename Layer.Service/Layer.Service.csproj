@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Layer.Repository\Layer.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>
