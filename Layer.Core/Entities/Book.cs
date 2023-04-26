@@ -12,7 +12,7 @@ namespace Layer.Core.Entities
     {
         public int BookID { get; set; }
         public string BookName { get; set; }
-        public int? WriterID { get; set; }
+        public int WriterID { get; set; }
         public decimal Price { get; set; }
         public string Summary { get; set; }
         public string Image { get; set; }

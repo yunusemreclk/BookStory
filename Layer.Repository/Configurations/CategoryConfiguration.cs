@@ -17,7 +17,7 @@ namespace Layer.Repository.Configurations
             builder.HasKey(x => x.CategoryID);
             builder.Property(x=>x.CategoryID).UseIdentityColumn();
             builder.Property(x=>x.CategoryName).HasColumnType("varchar").HasMaxLength(50);
-            builder.HasMany(x=>x.Book_Categories).WithOne(x=>x.Category).HasForeignKey(x=>x.CategoryID);
+
         }
     }
 }

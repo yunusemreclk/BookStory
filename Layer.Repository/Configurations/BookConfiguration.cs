@@ -19,6 +19,7 @@ namespace Layer.Repository.Configurations
                 builder.Property(x => x.Image).HasMaxLength(100).HasColumnType("varchar");
                 builder.Property(x => x.Pages).IsRequired();
                 builder.HasOne(x => x.Writer).WithMany(x => x.Books).HasForeignKey(x => x.WriterID) ;
+
           
             }
 

@@ -25,21 +25,13 @@ namespace Layer.Repository
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        
-        protected override void OnModelCreating(ModelBuilder builder) 
-        {   
-            base.OnModelCreating(builder);
-            builder.ApplyConfiguration<Writer>(new WriterConfiguration());
-            builder.ApplyConfiguration<Writer>(new WriterSeed());
-            builder.ApplyConfiguration<Category>(new CategoryConfiguration());
-            builder.ApplyConfiguration<Comment>(new CommentConfiguration());
-            builder.ApplyConfiguration<Book>(new BookConfiguration());
-            builder.ApplyConfiguration<Book>(new BookSeed());
-            builder.ApplyConfiguration<Category>(new CategorySeed());
-            builder.ApplyConfiguration<Book_Category>(new Book_CategorySeed());
-            
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
         }
-       
+
     }
 
 }

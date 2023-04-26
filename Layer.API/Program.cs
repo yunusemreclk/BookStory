@@ -5,6 +5,11 @@ using Layer.Repository.UnitOfWork;
 using Layer.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using System;
+using Layer.Core.Services;
+using Layer.Service.Services;
+using Layer.Service.Mapping;
+using Layer.Core.Servicies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,13 +20,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(typeof(MapProfile));
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-//builder.Services.AddScoped(typeof(IService<>),typeof());
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 
-builder.Services.AddDbContext<BookDbContext>(x =>x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 
+builder.Services.AddDbContext<BookDbContext>(x =>
+{
 
+    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
+    {
+        option.MigrationsAssembly(Assembly.GetAssembly(typeof(BookDbContext)).GetName().Name);
+    });
+
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
