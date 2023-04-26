@@ -18,8 +18,8 @@ namespace Layer.Core.Entities
         public string Image { get; set; }
         public short Pages { get; set; }
         public Writer? Writer { get; set; }
-        public ICollection<Book_Category>? Book_Categories { get; set; }
-        public ICollection<InvoiceDetail>? InvoiceDetails { get; set; }
+        public ICollection<Book_Category> Book_Categories { get; set; }
+        public ICollection<InvoiceDetail> InvoiceDetails { get; set; }
         public ICollection<Cart>? Carts { get; set; }
         public ICollection<Comment>? Comments { get; set; }
     }

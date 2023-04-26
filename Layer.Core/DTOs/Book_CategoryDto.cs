@@ -12,8 +12,7 @@ namespace Layer.Core.DTOs
         public int ID { get; set; }
         public int BookID { get; set; }
         public int CategoryID { get; set; }
-        public Book? Book { get; set; }
-        public Category? Category { get; set; }
+
 
     }
 }
