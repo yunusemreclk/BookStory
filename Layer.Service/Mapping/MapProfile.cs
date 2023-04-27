@@ -15,16 +15,21 @@ namespace Layer.Service.Mapping
         public MapProfile()
         {
             CreateMap<Book,BookDto>().ReverseMap();
-            CreateMap<Category,CategoryDto>().ReverseMap();
-            CreateMap<Invoice,InvoiceDto>().ReverseMap();
-            CreateMap<Invoice, InvoiceDetailDto>();
-            CreateMap<Writer,WriterDto>().ReverseMap();
             CreateMap<Book, BookDetailDto>().ReverseMap();
+
+            CreateMap<Category,CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryWithBooksDto>();
+    
             CreateMap<Book_Category,Book_CategoryDto>().ReverseMap();
             CreateMap<Book_Category,BookDetailDto>().ReverseMap();
-            CreateMap<Category,Book_Category>().ReverseMap();
+            
+            CreateMap<Writer,WriterDto>().ReverseMap();
+
+            CreateMap<Invoice,InvoiceDto>().ReverseMap();
+            CreateMap<Invoice, InvoiceDetailDto>();
+           
             CreateMap<Comment,CommentDto>();
-        
+
         }
     }
 }

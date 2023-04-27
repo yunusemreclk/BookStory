@@ -9,7 +9,7 @@ namespace Layer.Core.Services
 {
     public interface IService <T> where T : class
     {
-        Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(int Id);
         Task<IEnumerable<T>> GetAllAsync();
         IQueryable<T> Wehere(Expression<Func<T, bool>> expression);
         Task<bool> AnyAsync(Expression<Func<T, bool>> expression);

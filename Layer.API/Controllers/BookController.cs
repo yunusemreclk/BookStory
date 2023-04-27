@@ -11,20 +11,17 @@ namespace Layer.API.Controllers
     public class BookController :CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Book> _service;
-        private readonly IBookService _bookService;
-        public BookController(IMapper mapper, IService<Book> service, IBookService bookService)
+        private readonly IBookService _service;
+        public BookController(IMapper mapper, IBookService bookService)
         {
             _mapper = mapper;
-            _service = service;
-            _bookService = bookService;
+            _service = bookService;
         }
-        [HttpGet("[action]/{id}")]
-        public async Task <IActionResult> GetBookDetail(int id)
+        [HttpGet("[action]/{Id}")]
+        public async Task <IActionResult> GetBookDetail(int Id)
         {
-            return CreateActionResult(await _bookService.GetBookDetailAsync(id));
+            return CreateActionResult(await _service.GetBookDetailAsync(Id));
         }
-      
 
         [HttpGet]
         public async Task<IActionResult> All()
@@ -33,10 +30,10 @@ namespace Layer.API.Controllers
             var bookDtos=  _mapper.Map<List<BookDto>>(books.ToList());
             return CreateActionResult(CustomResponseDto<List<BookDto>>.Success(bookDtos,200));
         }
-        [HttpGet("{id}")]
-        public async Task <IActionResult> GetById(int id)
+        [HttpGet("{Id}")]
+        public async Task <IActionResult> GetById(int Id)
         {
-            var book= await _service.GetByIdAsync(id);
+            var book= await _service.GetByIdAsync(Id);
             var bookDto= _mapper.Map<BookDto>(book);
             return CreateActionResult(CustomResponseDto<BookDto>.Success(bookDto,204));
         }
@@ -53,10 +50,10 @@ namespace Layer.API.Controllers
             var book = _service.UpdateAsync(_mapper.Map<Book>(bookDto));
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
-        [HttpDelete("{id}")]
-        public async Task <IActionResult>Remove (int id)
+        [HttpDelete("{Id}")]
+        public async Task <IActionResult>Remove (int Id)
         {
-            var book = await _service.GetByIdAsync(id);
+            var book = await _service.GetByIdAsync(Id);
              await _service.RemoveAsync(book);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(200));
         }

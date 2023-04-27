@@ -40,9 +40,9 @@ namespace Layer.Service.Services
             return await _repository.GetAll().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int Id)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _repository.GetByIdAsync(Id);
         }
 
         public async Task RemoveAsync(T entity)
