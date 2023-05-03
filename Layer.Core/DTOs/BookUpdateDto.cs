@@ -8,7 +8,7 @@ namespace Layer.Core.DTOs
 {
     public class BookUpdateDto
     {
-        public int BookID { get; set; }
+        public int Id { get; set; }
         public string BookName { get; set; }
         public int? WriterID { get; set; }
         public decimal Price { get; set; }

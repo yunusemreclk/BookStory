@@ -14,8 +14,8 @@ namespace Layer.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Writer> builder)
         {
-            builder.HasKey( x => x.WriterID);
-            builder.Property(x=> x.WriterID).UseIdentityColumn();
+            builder.HasKey( x => x.Id);
+            builder.Property(x=> x.Id).UseIdentityColumn();
             builder.Property(x=> x.Biography).IsRequired();
             builder.Property(x => x.WriterName).HasMaxLength(150).IsRequired();
          

@@ -24,6 +24,7 @@ namespace Layer.Service.Mapping
             CreateMap<Book_Category,BookDetailDto>().ReverseMap();
             
             CreateMap<Writer,WriterDto>().ReverseMap();
+            CreateMap<Writer, WriterWithBooksDto>();
 
             CreateMap<Invoice,InvoiceDto>().ReverseMap();
             CreateMap<Invoice, InvoiceDetailDto>();

@@ -8,7 +8,7 @@ namespace Layer.Core.DTOs
 {
     public class WriterDto
     {
-        public int WriterID { get; set; }
+        public int Id { get; set; }
         public string WriterName { get; set; }
         public string Biography { get; set; }
     }

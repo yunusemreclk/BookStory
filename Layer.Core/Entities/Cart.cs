@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Cart
+    public class Cart:BaseEntity
     {
-        public int CartID { get; set; }
+  
         public int BookID { get; set; }
         public byte Number { get; set; } // Maximum 10
         public Book? Book { get; set; }

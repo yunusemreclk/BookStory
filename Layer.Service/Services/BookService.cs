@@ -22,12 +22,13 @@ namespace Layer.Service.Services
             _bookRepository = bookRepository;
             _mapper = mapper;
         }
-
         public async Task<CustomResponseDto<List<BookDetailDto>>> GetBookDetailAsync(int Id)
         {
-            var books=await _bookRepository.GetBookDetailAsync(Id);
+            var books = await _bookRepository.GetBookDetailAsync(Id);
             var bookDetail = _mapper.Map<List<BookDetailDto>>(books);
-            return CustomResponseDto<List<BookDetailDto>>.Success(bookDetail,200);
+            return CustomResponseDto<List<BookDetailDto>>.Success(bookDetail, 200);
         }
+       
+
     }
 }

@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Layer.Core.DTOs
+namespace Layer.Core.Repositories
 {
-    public class CategoryDto
+    public interface IWriterRepository
     {
-        public int Id { get; set; }
-        public string CategoryName { get; set; }
-     
+        Task<Writer> GetSingleWriterByIdWithBooksAsync(int writerId);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Layer.Core.IUnitOfWork;
 using Layer.Core.Repositories;
 using Layer.Core.Services;
+using Layer.Service.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -40,9 +41,15 @@ namespace Layer.Service.Services
             return await _repository.GetAll().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int Id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(Id);
+            var hasProduct= await _repository.GetByIdAsync(id);
+            if (hasProduct == null)
+            {
+                throw new NotFoundException($"{typeof(T).Name} ({id})not found");
+            }
+            return hasProduct;
+
         }
 
         public async Task RemoveAsync(T entity)

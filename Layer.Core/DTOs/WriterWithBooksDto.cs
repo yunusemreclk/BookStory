@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Layer.Core.Entities
+namespace Layer.Core.DTOs
 {
-    public class Writer : BaseEntity
+   public class WriterWithBooksDto 
     {
-
         public string WriterName { get; set; }
         public string Biography { get; set; }
-        public ICollection<Book>? Books { get; set; }
+        public List<BookDto> Books { get; set; }
+  
     }
 }

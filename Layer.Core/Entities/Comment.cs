@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Comment 
+    public class Comment: BaseEntity
     {
-        public int CommentID { get; set; }
         public int BookID { get; set; }
         public string CommentText { get; set; }
         public DateTime CreatedDate { get; set; }

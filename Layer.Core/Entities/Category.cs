@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Category 
+    public class Category : BaseEntity
     {
-        public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public ICollection<Book_Category>? Book_Categories { get; set; }
     }

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Layer.Core.DTOs
 {
     public class CategoryWithBooksDto
-    {
-        public List<Book_CategoryDto> Book_Categories { get; set; }
+    {  
         public string  CategoryName { get; set; }
+        public List<Book_CategoryDto> Book_Categories { get; set; }
+      
 
     }
 }

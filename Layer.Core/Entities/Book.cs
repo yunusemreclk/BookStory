@@ -8,9 +8,8 @@ using System.Xml.Linq;
 
 namespace Layer.Core.Entities
 {
-    public class Book 
+    public class Book :BaseEntity
     {
-        public int BookID { get; set; }
         public string BookName { get; set; }
         public int WriterID { get; set; }
         public decimal Price { get; set; }

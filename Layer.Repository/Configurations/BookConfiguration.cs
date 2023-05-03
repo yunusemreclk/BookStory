@@ -13,7 +13,7 @@ namespace Layer.Repository.Configurations
     {
             public void Configure(EntityTypeBuilder<Book> builder)
             {
-                builder.Property(x => x.BookID).UseIdentityColumn();
+                builder.Property(x => x.Id).UseIdentityColumn();
                 builder.Property(x => x.BookName).HasColumnType("varchar").HasMaxLength(150).IsRequired();
                 builder.Property(x => x.Price).HasColumnType("money").IsRequired();
                 builder.Property(x => x.Image).HasMaxLength(100).HasColumnType("varchar");

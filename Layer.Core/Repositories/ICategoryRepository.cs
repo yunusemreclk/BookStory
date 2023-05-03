@@ -9,6 +9,6 @@ namespace Layer.Core.Repositories
 {
     public interface ICategoryRepository:IGenericRepository<Category>
     {
-        public Task<Category> GetSingleCategoryByIdWithBooksAsync(int categoryId);
+      Task<Category> GetSingleCategoryByIdWithBooksAsync(int categoryId);
     }
 }

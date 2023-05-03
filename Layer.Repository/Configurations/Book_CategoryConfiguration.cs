@@ -14,8 +14,8 @@ namespace Layer.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Book_Category> builder)
         {
-            builder.HasKey(x => x.ID);
-            builder.Property(x=>x.ID).UseIdentityColumn();
+            builder.HasKey(x => x.Id);
+            builder.Property(x=>x.Id).UseIdentityColumn();
             builder.Property(x=>x.CategoryID).IsRequired();
             builder.Property(x=>x.BookID).IsRequired();
             builder.HasOne(x => x.Book).WithMany(x => x.Book_Categories).HasForeignKey(x => x.BookID);

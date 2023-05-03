@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class Invoice 
+    public class Invoice : BaseEntity
     {
-        public int InvoiceID { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime CreateDate { get; set; }
         public ICollection<InvoiceDetail>? InvoiceDetails { get; set; }

@@ -9,7 +9,7 @@ namespace Layer.Core.DTOs
 {
     public class Book_CategoryDto
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int BookID { get; set; }
         public int CategoryID { get; set; }
 

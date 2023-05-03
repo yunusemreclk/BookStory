@@ -14,8 +14,8 @@ namespace Layer.Repository.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.HasKey(x => x.CategoryID);
-            builder.Property(x=>x.CategoryID).UseIdentityColumn();
+            builder.HasKey(x => x.Id);
+            builder.Property(x=>x.Id).UseIdentityColumn();
             builder.Property(x=>x.CategoryName).HasColumnType("varchar").HasMaxLength(50);
 
         }

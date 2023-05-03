@@ -1,12 +1,11 @@
 ﻿using Layer.Core.DTOs.ResponseDTOs;
 using Microsoft.AspNetCore.Mvc;
-using Layer.Core.DTOs.ResponseDTOs;
 
 namespace Layer.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    
     public class CustomBaseController : ControllerBase
     {
         [NonAction]

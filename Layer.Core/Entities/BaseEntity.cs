@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Layer.Core.DTOs
+namespace Layer.Core.Entities
 {
-    public class InvoiceDto
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
-        public decimal TotalPrice { get; set; }
-        public DateTime CreateDate { get; set; }
+
     }
 }

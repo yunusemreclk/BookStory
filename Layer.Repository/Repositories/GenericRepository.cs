@@ -34,9 +34,9 @@ namespace Layer.Repository.Repositories
             return _dbSet.AsNoTracking().AsQueryable();
         }
 
-        public async Task<T> GetByIdAsync(int Id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(Id);
+            return await _dbSet.FindAsync(id);
         }
 
         public void Remove(T entity)

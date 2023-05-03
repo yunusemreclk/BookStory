@@ -17,9 +17,9 @@ namespace Layer.Repository.Repositories
         {
         }
 
-        public Task<Category> GetSingleCategoryByIdWithBooksAsync(int categoryId)
+        public async Task<Category> GetSingleCategoryByIdWithBooksAsync(int categoryId)
         {
-            return _context.Categories.Include(x => x.Book_Categories).Where(x => x.CategoryID == categoryId).SingleOrDefaultAsync();
+            return await _context.Categories.Include(x => x.Book_Categories).Where(x => x.Id == categoryId).SingleOrDefaultAsync();
         }
     }
 }

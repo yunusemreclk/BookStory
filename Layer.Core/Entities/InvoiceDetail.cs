@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Entities
 {
-    public class InvoiceDetail  
+    public class InvoiceDetail  : BaseEntity
     {
-        public int InvoiceDetailID { get; set; }
         public int InvoiceID { get; set; }
         public int BookID { get; set; }
         public byte Number { get; set; }

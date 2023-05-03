@@ -22,11 +22,10 @@ namespace Layer.Repository.Repositories
         }
         public async Task<List<Book>> GetBookDetailAsync(int Id)
         {
-
-            return await _context.Books.Include(x => x.Writer).Where(x => x.BookID == Id).Include(x => x.Comments).Where(x => x.BookID == Id).Include(x => x.Book_Categories).Where(x => x.BookID == Id).ToListAsync();
-
-            //await _context.Books.Include("Writer").Where(x => x.BookID == Id).ToListAsync();
-            //return await _context.Books.Include(x=>x.Comments).Where(x => x.BookID == Id).ToListAsync();
+            return await _context.Books.
+                   Include(x => x.Writer).Where(x => x.Id == Id).
+                   Include(x => x.Comments).Where(x => x.Id == Id).
+                   Include(x => x.Book_Categories).Where(x => x.Id == Id).ToListAsync();
         }
     }
    }

@@ -8,7 +8,7 @@ namespace Layer.Core.DTOs
 {
     public class InvoiceDetailDto
     {
-        public int InvoiceDetailID { get; set; }
+        public int Id { get; set; }
         public int InvoiceID { get; set; }
         public int BookID { get; set; }
         public byte Number { get; set; }

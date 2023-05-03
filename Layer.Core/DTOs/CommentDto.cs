@@ -8,7 +8,7 @@ namespace Layer.Core.DTOs
 {
     public class CommentDto
     {
-        public int CommentID { get; set; }
+        public int Id { get; set; }
         public int BookID { get; set; }
         public string CommentText { get; set; }
         public DateTime CreatedDate { get; set; }
