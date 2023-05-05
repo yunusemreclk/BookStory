@@ -16,6 +16,9 @@ using Layer.API.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Layer.API.Middlewares;
 using Layer.Core.Entities;
+using Autofac.Extensions.DependencyInjection;
+using Autofac;
+using Layer.API.Modules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,16 +39,17 @@ builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+//builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+//builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 
-builder.Services.AddScoped<IBookRepository, BookRepository>();
-builder.Services.AddScoped<IBookService, BookService>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IWriterRepository, WriterRepository>();
-builder.Services.AddScoped<IWriterService, WriterService>();
+//builder.Services.AddScoped<IBookRepository, BookRepository>();
+//builder.Services.AddScoped<IBookService, BookService>();
+//builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+//builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddScoped<IWriterRepository, WriterRepository>();
+//builder.Services.AddScoped<IWriterService, WriterService>();
+
 
 builder.Services.AddDbContext<BookDbContext>(x =>
 {
@@ -56,6 +60,8 @@ builder.Services.AddDbContext<BookDbContext>(x =>
     });
 
 });
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
