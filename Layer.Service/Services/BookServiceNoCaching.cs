@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace Layer.Service.Services
 {
-    public class BookService : Service<Book>, IBookService
+    public class BookServiceNoCaching : Service<Book>, IBookService
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
-        public BookService(IGenericRepository<Book> repository, IUnitOfWork unitOfWork, IBookRepository bookRepository, IMapper mapper) : base(repository, unitOfWork)
+        public BookServiceNoCaching(IGenericRepository<Book> repository, IUnitOfWork unitOfWork, IBookRepository bookRepository, IMapper mapper) : base(repository, unitOfWork)
         {
             _bookRepository = bookRepository;
             _mapper = mapper;
@@ -28,7 +28,7 @@ namespace Layer.Service.Services
             var bookDetail = _mapper.Map<List<BookDetailDto>>(books);
             return CustomResponseDto<List<BookDetailDto>>.Success(bookDetail, 200);
         }
-       
+
 
     }
 }

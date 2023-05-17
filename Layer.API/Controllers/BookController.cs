@@ -36,17 +36,17 @@ namespace Layer.API.Controllers
             var book= await _service.GetByIdAsync(id);
             if (book==null)
             {
-                return CreateActionResult(CustomResponseDto<BookDto>.Fail(400,"bu id ye sayip ürün yok"));
+                return CreateActionResult(CustomResponseDto<BookDto>.Fail(400,"Bu id'ye sahip ürün yok"));
             }
             var bookDto= _mapper.Map<BookDto>(book);
             return CreateActionResult(CustomResponseDto<BookDto>.Success(bookDto,200));
         }
         [HttpPost]
-        public async Task<IActionResult> Save(BookDto bookDto)
+        public async Task<IActionResult> Save(BookAddDto bookAddDto)
         {
-            var book =await _service.AddAsync(_mapper.Map<Book>(bookDto));
-            var booksDto= _mapper.Map<BookDto>(book);
-            return CreateActionResult(CustomResponseDto<BookDto>.Success(booksDto,201));
+            var book =await _service.AddAsync(_mapper.Map<Book>(bookAddDto));
+            var booksDto= _mapper.Map<BookAddDto>(book);
+            return CreateActionResult(CustomResponseDto<BookAddDto>.Success(booksDto,201));
         }
         [HttpPut]
         public async Task<IActionResult> Update(BookDto bookDto)

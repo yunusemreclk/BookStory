@@ -14,8 +14,9 @@ namespace Layer.Service.Mapping
     {
         public MapProfile()
         {
-            CreateMap<Book,BookDto>().ReverseMap();
+            CreateMap<Book, BookDto>().ReverseMap();
             CreateMap<Book, BookDetailDto>().ReverseMap();
+            CreateMap<Book, BookAddDto>().ReverseMap();
 
             CreateMap<Category,CategoryDto>().ReverseMap();
             CreateMap<Category, CategoryWithBooksDto>();

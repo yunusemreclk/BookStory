@@ -20,6 +20,7 @@ namespace Layer.Repository.Repositories
         public BookRepository(BookDbContext context) : base(context)
         {
         }
+
         public async Task<List<Book>> GetBookDetailAsync(int Id)
         {
             return await _context.Books.
