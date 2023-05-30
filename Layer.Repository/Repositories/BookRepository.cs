@@ -28,5 +28,7 @@ namespace Layer.Repository.Repositories
                    Include(x => x.Comments).Where(x => x.Id == Id).
                    Include(x => x.Book_Categories).Where(x => x.Id == Id).ToListAsync();
         }
+      
+
     }
    }

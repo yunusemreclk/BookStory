@@ -14,6 +14,6 @@ namespace Layer.Core.Servicies
     public interface IBookService:IService<Book>
     {
         Task<CustomResponseDto<List<BookDetailDto>>> GetBookDetailAsync(int Id);
-     
+
     }
 }

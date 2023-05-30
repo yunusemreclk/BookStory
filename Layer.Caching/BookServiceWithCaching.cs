@@ -25,17 +25,21 @@ namespace Layer.Caching
         private readonly IMemoryCache _memoryCache;
         private readonly IBookRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IBook_CategoryRepository _book_CategoryRepository;
 
-        public BookServiceWithCaching(IMapper mapper, IMemoryCache memoryCache, IBookRepository repository, IUnitOfWork unitOfWork)
+        public BookServiceWithCaching(IMapper mapper, IMemoryCache memoryCache, IBookRepository repository, IUnitOfWork unitOfWork, IBook_CategoryRepository book_CategoryRepository)
         {
             _mapper = mapper;
             _memoryCache = memoryCache;
             _repository = repository;
             _unitOfWork = unitOfWork;
-            if (!_memoryCache.TryGetValue(CacheBookKey, out  _))
+            _book_CategoryRepository = book_CategoryRepository;
+
+            if (!_memoryCache.TryGetValue(CacheBookKey, out _))
             {
-                _memoryCache.Set(CacheBookKey,_repository.GetAll().ToList());
+                _memoryCache.Set(CacheBookKey, _repository.GetAll().ToList());
             }
+            
         }
 
         public async Task<Book> AddAsync(Book entity)

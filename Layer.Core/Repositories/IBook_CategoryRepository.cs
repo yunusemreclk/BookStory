@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Layer.Core.Repositories
 {
-    public interface IBookRepository:IGenericRepository<Book>
+   public interface IBook_CategoryRepository:IGenericRepository<Book_Category>
     {
-       Task<List<Book>> GetBookDetailAsync(int Id);
-    
+        Task<List<Book_Category>> GetBook_CategoryDetail(int Id);
     }
 }

@@ -4,6 +4,7 @@ using Layer.Core.DTOs.ResponseDTOs;
 using Layer.Core.Entities;
 using Layer.Core.IUnitOfWork;
 using Layer.Core.Repositories;
+using Layer.Core.Services;
 using Layer.Core.Servicies;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Layer.Service.Services
             var bookDetail = _mapper.Map<List<BookDetailDto>>(books);
             return CustomResponseDto<List<BookDetailDto>>.Success(bookDetail, 200);
         }
-
-
+      
+       
     }
 }

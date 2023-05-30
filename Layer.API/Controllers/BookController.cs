@@ -9,12 +9,14 @@ namespace Layer.API.Controllers
 {
     public class BookController :CustomBaseController
     {
+        private readonly IBook_CategoryServices _book_CategoryService;
         private readonly IMapper _mapper;
         private readonly IBookService _service;
-        public BookController(IMapper mapper, IBookService bookService)
+        public BookController(IMapper mapper, IBookService bookService, IBook_CategoryServices book_CategoryService)
         {
             _mapper = mapper;
             _service = bookService;
+            _book_CategoryService = book_CategoryService;
         }
         [HttpGet("[action]/{id}")]
         public async Task <IActionResult> GetBookDetail(int id)
@@ -42,11 +44,12 @@ namespace Layer.API.Controllers
             return CreateActionResult(CustomResponseDto<BookDto>.Success(bookDto,200));
         }
         [HttpPost]
-        public async Task<IActionResult> Save(BookAddDto bookAddDto)
+        public async Task<IActionResult> Save(BookDto bookDto)
         {
-            var book =await _service.AddAsync(_mapper.Map<Book>(bookAddDto));
-            var booksDto= _mapper.Map<BookAddDto>(book);
-            return CreateActionResult(CustomResponseDto<BookAddDto>.Success(booksDto,201));
+
+            var book =await _service.AddAsync(_mapper.Map<Book>(bookDto));
+            var booksDto= _mapper.Map<BookDto>(book);
+            return CreateActionResult(CustomResponseDto<BookDto>.Success(booksDto,201));
         }
         [HttpPut]
         public async Task<IActionResult> Update(BookDto bookDto)
